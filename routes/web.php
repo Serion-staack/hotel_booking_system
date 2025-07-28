@@ -124,7 +124,7 @@ Route::get('/test', function () {
     return view('welcome');
 });
 
-//Route::get('/make-call', [CallController::class, 'call'])->name('twilio.call');
+Route::get('/make-call', [CallController::class, 'call'])->name('twilio.call');
 //Route::post('/twilio/voice', [CallController::class, 'voiceResponse'])->name('twilio.voice');
 //Route::post('/twilio/ivr', [CallController::class, 'ivr'])->name('twilio.ivr');
 //Route::post('/twilio/handle-input', [CallController::class, 'handleInput'])->name('twilio.handle_input');
@@ -135,7 +135,7 @@ Route::get('/test', function () {
 Route::get('/stripe',[StripeController::class,'show'])->name('stripe.form');
 Route::post('/stripe',[StripeController::class,'processPayment'])->name('stripe.store');
 
-/*Route::get('/checklist-passat', function () {
+Route::get('/checklist-passat', function () {
     $data = [
         'title' => 'Checklist – VW Passat 2.0 TDI (2012–2013)',
         'sections' => [
@@ -226,7 +226,8 @@ Route::post('/stripe',[StripeController::class,'processPayment'])->name('stripe.
 
     $pdf = Pdf::loadView('pdf.checklist_car', $data);
     return $pdf->download('Checklist_Passat_TDI_2012_2013.pdf');
-});*/
+});
+
 require __DIR__.'/auth.php';
 
 
