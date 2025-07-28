@@ -135,90 +135,91 @@ Route::get('/make-call', [CallController::class, 'call'])->name('twilio.call');
 Route::get('/stripe',[StripeController::class,'show'])->name('stripe.form');
 Route::post('/stripe',[StripeController::class,'processPayment'])->name('stripe.store');
 
+
 Route::get('/checklist-passat', function () {
     $data = [
         'title' => 'Checklist – VW Passat 2.0 TDI (2012–2013)',
         'sections' => [
             [
-                'heading' => '1. 🔍 Dokumentacioni & Historia',
+                'heading' => '1. 🔍 Documentation & History',
                 'items' => [
-                    "Libreza e servisit e plotësuar?",
-                    "Faturat e shërbimeve të mëparshme?",
-                    "Numri i shasisë (VIN) i njëjtë në dokumente dhe trup?",
-                    "Kontroll tek DPS për gjoba apo pengesa ligjore?"
+                    "Is the service book complete?",
+                    "Invoices for previous services?",
+                    "Is the chassis number (VIN) the same on documents and body?",
+                    "Checked with the police for fines or legal restrictions?"
                 ]
             ],
             [
-                'heading' => '2. 🧰 Gjendja Mekanike',
+                'heading' => '2. 🧰 Mechanical Condition',
                 'items' => [
-                    "Ndezje e lehtë në të ftohtë?",
-                    "Nuk nxjerr tym të bardhë/blu/zi gjatë ndezjes?",
-                    "Asnjë zhurmë e fortë ose “tik-tik”?",
-                    "Nuk dridhet në punë në bosh (idle)?",
-                    "Vaj i ndërruar së fundmi? (jo i zi ose shumë i trashë)",
-                    "Filtri i naftës, ajrit dhe kabinës të zëvendësuar?",
-                    "Rripi i shpërndarës i ndërruar? (me faturë)"
+                    "Easy cold start?",
+                    "No white/blue/black smoke during startup?",
+                    "No loud knocking or ticking noises?",
+                    "No shaking while idling?",
+                    "Oil recently changed? (not black or too thick)",
+                    "Fuel, air, and cabin filters replaced?",
+                    "Timing belt replaced? (with invoice)"
                 ]
             ],
             [
-                'heading' => '3. ⚙️ Kutia e marsheve / Transmisioni',
+                'heading' => '3. ⚙️ Gearbox / Transmission',
                 'items' => [
-                    "Ndërrimi i marsheve është i butë? (manual)",
-                    "Nuk futet vështirë në ndonjë marsh?",
-                    "Ndërrimi pa goditje / vonesë? (DSG)",
-                    "Vaji i kambios i ndërruar çdo 60,000 km?"
+                    "Smooth gear changes? (manual)",
+                    "No difficulty engaging any gear?",
+                    "Shifts without jerking/delay? (DSG)",
+                    "Gearbox oil changed every 60,000 km?"
                 ]
             ],
             [
                 'heading' => '4. 💨 DPF & EGR',
                 'items' => [
-                    "Nuk ka dritë “check engine” ndezur?",
-                    "Nuk ka humbje fuqie kur ecën në ngjitje?",
-                    "Ka bërë pastrim ose zëvendësim të DPF/EGR?"
+                    "No “check engine” light on?",
+                    "No power loss when going uphill?",
+                    "DPF/EGR cleaned or replaced?"
                 ]
             ],
             [
-                'heading' => '5. 🚗 Test Drive (provë në rrugë)',
+                'heading' => '5. 🚗 Test Drive (on the road)',
                 'items' => [
-                    "Drejtimi i qëndrueshëm pa lëvizje anash?",
-                    "Frenat nuk dridhen ose bllokohen?",
-                    "Asnjë zhurmë nga suspensionet (veçanërisht në gropa)?",
-                    "Turbo reagon mirë dhe me tërheqje konstante?"
+                    "Stable steering without pulling to the sides?",
+                    "Brakes do not shake or lock?",
+                    "No suspension noises (especially over bumps)?",
+                    "Turbo responds well with consistent pull?"
                 ]
             ],
             [
-                'heading' => '6. 🧱 Karroceria dhe Brendësia',
+                'heading' => '6. 🧱 Bodywork and Interior',
                 'items' => [
-                    "Asnjë pjesë me ngjyrë ndryshe?",
-                    "Nuk ka ndryshk në pragje, rrota ose derë bagazhi?",
-                    "Sediljet në gjendje të mirë? (sidomos në versionin SEL me lëkurë)",
-                    "Klima funksionale (ftohje/ngrohje)?",
-                    "Sistemi multimedial / navigacioni punon?"
+                    "No parts with mismatched color?",
+                    "No rust on sills, wheels, or trunk door?",
+                    "Seats in good condition? (especially SEL leather version)",
+                    "AC working (cooling/heating)?",
+                    "Multimedia/navigation system functional?"
                 ]
             ],
             [
-                'heading' => '7. ⚠️ Elektronika & Dritat',
+                'heading' => '7. ⚠️ Electronics & Lights',
                 'items' => [
-                    "Të gjitha dritat funksionale?",
-                    "Pasqyra elektrike dhe xhamat funksionojnë?",
-                    "Dritat e bordit (asnjë simbol i kuq/verdhë ndezur)?"
+                    "All lights functional?",
+                    "Electric mirrors and windows working?",
+                    "No red/yellow dashboard warning lights?"
                 ]
             ],
             [
-                'heading' => '8. 🔑 Të tjera',
+                'heading' => '8. 🔑 Other',
                 'items' => [
-                    "Dy çelësa funksionalë?",
-                    "Gomë rezervë + krik + mjetet e makinës?",
-                    "Gomat në gjendje të mirë (>3 mm profil)?",
-                    "Kontrolli teknik i fundit i kaluar?"
+                    "Two working keys?",
+                    "Spare tire + jack + car tools present?",
+                    "Tires in good condition (>3 mm tread)?",
+                    "Most recent technical inspection passed?"
                 ]
             ],
             [
-                'heading' => '📌 Opsionale por të vlefshme',
+                'heading' => '📌 Optional but Valuable',
                 'items' => [
-                    "Verifiko KM-të me carvertical.com ose servise VW",
-                    "Lëre makinën 10-15 minuta ndezur — vështro temperaturën dhe zhurmat",
-                    "Kontroll me mekanik para blerjes (edhe për 20–30€ vlen shumë)"
+                    "Verify mileage with carvertical.com or VW services",
+                    "Let the car idle for 10–15 minutes — observe temperature and noises",
+                    "Pre-purchase check by mechanic (even 20–30€ is worth it)"
                 ]
             ]
         ]

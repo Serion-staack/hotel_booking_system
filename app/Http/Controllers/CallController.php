@@ -40,7 +40,7 @@ class CallController extends Controller
             'method' => 'POST',
         ]);
 
-        $gather->say('Shtyp 1 për konfirmim rezervimi. Shtyp 2 për të folur me recepsionin.', ['voice' => 'alice']);
+        $gather->say('Press 1 to confirm your reservation. Press 2 to speak with the reception.', ['voice' => 'alice']);
 
         $twiml->redirect(route('twilio.ivr', [], false), ['method' => 'POST']);
 
@@ -53,17 +53,18 @@ class CallController extends Controller
         $digit = $request->input('Digits');
 
         if ($digit == '1') {
-            $twiml->say('Ju keni zgjedhur të konfirmoni rezervimin. Faleminderit!', ['voice' => 'alice']);
+            $twiml->say('You have chosen to confirm the reservation. Thank you!', ['voice' => 'alice']);
         } elseif ($digit == '2') {
-            $twiml->say('Po ju lidhim me recepsionin.', ['voice' => 'alice']);
-            $twiml->dial('+3556xxxxxxx');
+            $twiml->say('Connecting you to the reception.', ['voice' => 'alice']);
+            $twiml->dial('+3556xxxxxxx'); // Replace with actual reception number
         } else {
-            $twiml->say('Zgjedhje e pavlefshme. Provo përsëri.', ['voice' => 'alice']);
+            $twiml->say('Invalid choice. Please try again.', ['voice' => 'alice']);
             $twiml->redirect(route('twilio.ivr', [], false), ['method' => 'POST']);
         }
 
         return response($twiml)->header('Content-Type', 'text/xml');
     }
+
 
 
 }
