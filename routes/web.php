@@ -229,7 +229,7 @@ Route::get('/checklist-passat', function () {
     return $pdf->download('Checklist_Passat_TDI_2012_2013.pdf');
 });
 
-Route::get('bookings/new',[BookingsController::class,'newthing'])->name('new');
+Route::get('/bookings/new',[BookingsController::class,'newthing'])->name('new');
 
 require __DIR__.'/auth.php';
 
