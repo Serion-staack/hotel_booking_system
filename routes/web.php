@@ -8,7 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SmsTestController;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\TwilioWebhookController;
+//use App\Http\Controllers\TwilioWebhookController;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
@@ -228,6 +228,8 @@ Route::get('/checklist-passat', function () {
     $pdf = Pdf::loadView('pdf.checklist_car', $data);
     return $pdf->download('Checklist_Passat_TDI_2012_2013.pdf');
 });
+
+Route::get('bookings/new',[BookingsController::class,'newthing'])->name('new');
 
 require __DIR__.'/auth.php';
 

@@ -21,6 +21,10 @@ class BookingsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function newthing()
+    {
+        return view('bookings.newthing');
+    }
     public function index()
     {
         $bookings = Bookings::all();

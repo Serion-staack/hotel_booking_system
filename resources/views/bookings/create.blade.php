@@ -1,6 +1,5 @@
 @extends('dashboard.layouts.app')
 
-@section('title','Krijo nje rezervim')
 
 @section('content')
 
