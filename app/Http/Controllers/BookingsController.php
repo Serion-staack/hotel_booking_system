@@ -84,10 +84,10 @@ class BookingsController extends Controller
         Log::info('Booking created', ['booking_id' => $booking->id]);
 
         $message = "Hello {$booking->customer_name}, your booking is confirmed {$booking->start_date}.";
-        Log::info('Sending SMS', ['to' => '+355675885332', 'message' => $message]);
+        Log::info('Sending SMS', ['to' => '+355683265019', 'message' => $message]);
 
         try {
-            $smsService->sendSms('+355675885332', $message);
+            $smsService->sendSms('+355683265019', $message);
             Log::info('SMS sent successfully');
         } catch (\Exception $e) {
             Log::error('SMS sending failed: ' . $e->getMessage());

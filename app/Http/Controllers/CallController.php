@@ -10,7 +10,7 @@ class CallController extends Controller
 {
     public function call(TwilioService $twilio)
     {
-        $to = '+355675885332';
+        $to = '+355683265019';
        /* $twimlUrl = route('twilio.voice');*/
        /* $twimlUrl = 'https://abcd1234.ngrok.io/twilio/voice';*/
         $twimlUrl = config('services.twilio.twiml_url');

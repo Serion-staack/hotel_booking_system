@@ -38,7 +38,7 @@ return [
         'sid' => env('TWILIO_SID'),
         'token' => env('TWILIO_TOKEN'),
         'from' => env('TWILIO_FROM'),
-        //'twiml_url' => env('TWILIO_TWIML_URL'),
+        'twiml_url' => env('TWILIO_TWIML_URL'),
     ],
 
     'stripe'=>[
