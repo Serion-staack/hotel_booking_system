@@ -20,6 +20,7 @@
                 <ul class="sidebar-submenu">
                     <li> <a href="{{route('index.bookings')}}">Bookings</a></li>
                     <li><a href="{{route('rooms.index')}}">Rooms </a></li>
+                    <li><a href="{{route('available.index')}}">Available</a></li>
                     <li><a href="{{route('index_client')}}">Client-Dashboard </a></li>
                     <li><a href="{{route('booking.calendar')}}">Calendar </a></li>
                     <li><a href="{{route('hotels.index')}}">Map</a></li>

@@ -102,4 +102,13 @@ class RoomController extends Controller
     {
         return Excel::download(new RoomsExport,'rooms.xlsx');
     }
+
+    public function available()
+    {
+        $rooms = Room::with('images')
+            ->where('status','free')
+        ->where('is_active',true)->get();
+
+        return view('rooms.available')->with('rooms', $rooms);
+    }
 }

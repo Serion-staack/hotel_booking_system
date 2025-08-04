@@ -135,7 +135,7 @@ Route::get('/make-call', [CallController::class, 'call'])->name('twilio.call');
 Route::get('/stripe',[StripeController::class,'show'])->name('stripe.form');
 Route::post('/stripe',[StripeController::class,'processPayment'])->name('stripe.store');
 
-
+Route::get('/available',[RoomController::class,'available'])->name('available.index');
 Route::get('/checklist-passat', function () {
     $data = [
         'title' => 'Checklist – VW Passat 2.0 TDI (2012–2013)',

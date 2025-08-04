@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('room_number')->unique();
-            $table->integer('capacity');
+            $table->string('name')->nullable();
+            $table->integer('capacity')->nullable();
              $table->string('status')->default('free');
-             $table->string('type');
+             $table->string('room_type')->nullable();
             $table->text('description')->nullable();
+            $table->integer('beds')->nullable();
             $table->decimal('price',8,2);
             $table->boolean('is_active')->default(true);
-            $table->text('amenities')->nullable();
+            $table->json('amenities')->nullable();
             $table->integer('floor')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();

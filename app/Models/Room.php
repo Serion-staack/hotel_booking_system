@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    protected $casts=[
+        'amenities' => 'array',
+    ];
     protected $fillable = [
         'room_number',
         'type',

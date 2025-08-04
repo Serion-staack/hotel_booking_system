@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\BookingCreated;
 use App\Exports\BookingExport;
+use App\Http\Requests\StoreBookingRequest;
 use App\Imports\BookingsImport;
 use App\Models\Bookings;
 use App\Models\Room;
@@ -46,17 +47,11 @@ class BookingsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, SmsService $smsService)
+    public function store(StoreBookingRequest $request, SmsService $smsService)
     {
         Log::info('Store function started');
 
-        $request->validate([
-            'room_id' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'customer_name' => 'required|string',
-            'customer_mail' => 'required|email',
-        ]);
+       $data= $request->validated();
 
         Log::info('Validation passed', ['request_data' => $request->all()]);
 
@@ -72,11 +67,11 @@ class BookingsController extends Controller
         }
 
         $booking = Bookings::create([
-            'customer_name' => $request->customer_name,
-            'customer_mail' => $request->customer_mail,
-            'room_id' => $request->room_id,
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            'customer_name' => $data['customer_name'],
+            'customer_mail' => $data['customer_mail'],
+            'room_id' => $data['room_id'],
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
             'status' => 'booked',
             'user_id' => auth()->id() ?? 1
         ]);
