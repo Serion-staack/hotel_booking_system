@@ -9,13 +9,16 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SmsTestController;
 use App\Http\Controllers\StripeController;
 //use App\Http\Controllers\TwilioWebhookController;
+use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\RoomController;
-
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 
 Route::get('/', function () {
@@ -36,6 +39,25 @@ Route::get('/send-notify',function ()
 /*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');*/
+
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.login');
+
+Route::get('/auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->stateless()->user();
+
+    $user = User::updateOrCreate([
+        'email' => $googleUser->getEmail(),
+    ], [
+        'name' => $googleUser->getName(),
+        'password' => bcrypt(Str::random(16)),
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

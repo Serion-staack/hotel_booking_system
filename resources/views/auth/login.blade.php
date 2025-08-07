@@ -44,4 +44,7 @@
             </x-primary-button>
         </div>
     </form>
+
+    <a href="{{ route('google.login') }}" class="btn btn-primary">Sign in with Google</a>
+
 </x-guest-layout>
