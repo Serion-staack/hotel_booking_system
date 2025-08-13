@@ -22,7 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
         },
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'terms.accepted' => \App\Http\Middleware\EnsureTermsAccepted::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -9,6 +9,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SmsTestController;
 use App\Http\Controllers\StripeController;
 //use App\Http\Controllers\TwilioWebhookController;
+use App\Http\Controllers\TermsController;
 use App\Models\User;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -73,7 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/users/profile', [DashboardController::class, 'profileUser'])->name('users.profile');
     Route::delete('/dashboard/users/{id}/delete-image', [DashboardController::class, 'deleteUserImage'])->name('user.image.delete');
 
-    //Client
+   /* //Client
 
     Route::get('/dashboard/client', [ReviewController::class, 'ClientDashboard'])->name('index_client');
     Route::post('/dashboard/client/store', [ReviewController::class, 'storeReview'])->name('client_store');
@@ -116,7 +117,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/bookings/import', [BookingsController::class, 'import'])->name('bookings.import');
 
     Route::get('/test-sms', [SmsTestController::class, 'SmsTest']);
-   Route::post('/reservation/store', [BookingsController::class, 'store'])->name('create.reservation');
+   Route::post('/reservation/store', [BookingsController::class, 'store'])->name('create.reservation');*/
 
     /*Route::post('/twilio/answer', function(Request $request) {
         $response = new \SimpleXMLElement('<Response></Response>');
@@ -252,6 +253,60 @@ Route::get('/checklist-passat', function () {
 });
 
 Route::get('/bookings/new',[BookingsController::class,'newthing'])->name('new');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/terms', [TermsController::class, 'show'])->name('terms.show');
+    Route::post('/terms/accept', [TermsController::class, 'accept'])->name('terms.accept');
+
+    // Këtu fut rruget e faqes që do mbrohen
+    Route::middleware('terms.accepted')->group(function () {
+        Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+        //Client
+
+        Route::get('/dashboard/client', [ReviewController::class, 'ClientDashboard'])->name('index_client');
+        Route::post('/dashboard/client/store', [ReviewController::class, 'storeReview'])->name('client_store');
+        Route::get('/dashboard/client/create/{booking}', [ReviewController::class, 'create'])->name('reviews.create');
+
+
+
+
+
+        //Bookings
+        Route::get('/bookings',[BookingsController::class,'index'])->name('index.bookings');
+        Route::get('/bookings/show/{id}',[BookingsController::class,'show'])->name('show.bookings');
+        Route::get('/bookings/create',[BookingsController::class,'create'])->name('create.bookings');
+        Route::post('/bookings/store',[BookingsController::class,'store'])->name('bookings.store');
+        Route::put('/bookings/update/{id}', [BookingsController::class, 'update'])->name('update.bookings');
+        Route::delete('/bookings/destroy/{id}',[BookingsController::class,'destroy'])->name('destroy.bookings');
+        Route::get('/bookings/edit/{id}',[BookingsController::class,'edit'])->name('edit.bookings');
+        //Route::get('/rooms/availability', [RoomController::class, 'availabilityView'])->name('rooms.availability');
+
+
+        //Rooms
+        Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
+        Route::get('/rooms/create', [RoomController::class, 'create'])->name('rooms.create');
+        Route::post('/rooms/store', [RoomController::class, 'store'])->name('rooms.store');
+        Route::put('/rooms/update/{id}', [RoomController::class, 'update'])->name('rooms.update');
+        Route::delete('/rooms/destroy/{id}', [RoomController::class, 'destroy'])->name('rooms.destroy');
+        Route::get('/rooms/edit/{id}', [RoomController::class, 'edit'])->name('rooms.edit');
+        Route::get('/rooms/show/{id}', [RoomController::class, 'show'])->name('rooms.show');
+
+        Route::get('/hotels/index', [HotelController::class, 'index'])->name('hotels.index');
+        Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
+        Route::post('/hotels/store', [HotelController::class, 'store'])->name('hotels.store');
+
+        Route::get('/calendar',[BookingsController::class,'calendar'])->name('booking.calendar');
+
+        Route::get('/bookings/export',[BookingsController::class,'export'])->name('bookings.export');
+
+        Route::get('/rooms/export',[RoomController::class,'export'])->name('rooms.export');
+
+        Route::post('/bookings/import', [BookingsController::class, 'import'])->name('bookings.import');
+
+        Route::get('/test-sms', [SmsTestController::class, 'SmsTest']);
+        Route::post('/reservation/store', [BookingsController::class, 'store'])->name('create.reservation');
+    });
+});
 
 require __DIR__.'/auth.php';
 
