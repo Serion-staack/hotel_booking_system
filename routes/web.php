@@ -255,19 +255,11 @@ Route::get('/checklist-passat', function () {
 Route::get('/bookings/new',[BookingsController::class,'newthing'])->name('new');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/terms', [TermsController::class, 'show'])->name('terms.show');
-    Route::post('/terms/accept', [TermsController::class, 'accept'])->name('terms.accept');
-
-    // Këtu fut rruget e faqes që do mbrohen
-    Route::middleware('terms.accepted')->group(function () {
-        Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
         //Client
 
         Route::get('/dashboard/client', [ReviewController::class, 'ClientDashboard'])->name('index_client');
         Route::post('/dashboard/client/store', [ReviewController::class, 'storeReview'])->name('client_store');
         Route::get('/dashboard/client/create/{booking}', [ReviewController::class, 'create'])->name('reviews.create');
-
-
 
 
 
@@ -280,7 +272,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/bookings/destroy/{id}',[BookingsController::class,'destroy'])->name('destroy.bookings');
         Route::get('/bookings/edit/{id}',[BookingsController::class,'edit'])->name('edit.bookings');
         //Route::get('/rooms/availability', [RoomController::class, 'availabilityView'])->name('rooms.availability');
-
 
         //Rooms
         Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
@@ -306,7 +297,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/test-sms', [SmsTestController::class, 'SmsTest']);
         Route::post('/reservation/store', [BookingsController::class, 'store'])->name('create.reservation');
     });
-});
+
 
 require __DIR__.'/auth.php';
 

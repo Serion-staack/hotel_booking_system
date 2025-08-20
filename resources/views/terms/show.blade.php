@@ -1,3 +1,4 @@
+{{--
 @extends('dashboard.layouts.app')
 
 @section('content')
@@ -49,3 +50,4 @@
         #terms-content, #terms-content * { user-select: none; }
     </style>
 @endpush
+--}}
