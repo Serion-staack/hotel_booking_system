@@ -731,3 +731,691 @@
         </footer>
     </div>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--
+@extends('admin.layout.app')
+
+@section('custom-css')
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="{{ asset('metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('metronic/assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+@endsection
+
+@section('toolbar')
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar py-6">
+        <!--begin::Toolbar container-->
+        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex align-items-start">
+            <!--begin::Toolbar container-->
+            <div class="d-flex flex-column flex-row-fluid">
+                <!--begin::Toolbar wrapper-->
+                <div class="d-flex align-items-center pt-1">
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-white fw-bold lh-1">
+                            <a href="index.html" class="text-white text-hover-primary">
+                                <i class="ki-outline ki-home text-gray-700 fs-6"></i>
+                            </a>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <i class="ki-outline ki-right fs-7 text-gray-700 mx-n1"></i>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-white fw-bold lh-1">Dashboard</li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Toolbar wrapper=-->
+                <!--begin::Toolbar wrapper=-->
+                <div class="d-flex flex-stack flex-wrap flex-lg-nowrap gap-4 gap-lg-10 pt-13 pb-6">
+                    <!--begin::Page title-->
+                    <div class="page-title me-5">
+                        <!--begin::Title-->
+                        <h1 class="page-heading d-flex text-white fw-bold fs-2 flex-column justify-content-center my-0">Welcome Back, {{ucfirst(\Illuminate\Support\Facades\Auth::user()->first_name)}}
+                            <!--begin::Description-->
+                            <span class="page-desc text-gray-600 fw-semibold fs-6 pt-3">Company Description</span>
+                            <!--end::Description--></h1>
+
+                        <!--end::Title-->
+                    </div>
+                    <!--end::Page title-->
+                    <!--begin::Stats-->
+                    <div class="d-flex align-self-center flex-center flex-shrink-0">
+                        <a href="#" class="btn btn-flex btn-sm btn-outline btn-active-color-primary btn-custom px-4" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
+                            <i class="ki-outline ki-plus-square fs-4 me-2"></i>Invite</a>
+                        <a href="#" class="btn btn-sm btn-active-color-primary btn-outline btn-custom ms-3 px-4" data-bs-toggle="modal" data-bs-target="#kt_modal_new_target">Set Your Target</a>
+                    </div>
+                    <!--end::Stats-->
+                </div>
+                <!--end::Toolbar wrapper=-->
+            </div>
+            <!--end::Toolbar container=-->
+        </div>
+        <!--end::Toolbar container-->
+    </div>
+    <!--end::Toolbar-->
+@endsection
+@section('content')
+    <div class="d-flex flex-column flex-column-fluid">
+        <!--begin::Content-->
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <!--begin::Row-->
+            <div class="row g-5 g-xl-8">
+                --}}
+{{--<!--begin::Col-->
+                <div class="col-xl-4">
+                    <!--begin::Misc Widget 1-->
+                    <div class="row mb-5 mb-xl-8 g-5 g-xl-8">
+                       --}}{{--
+--}}
+{{-- <!--begin::Col-->
+                        <div class="col-6">
+                            <!--begin::Card-->
+                            <a class="card flex-column justfiy-content-start align-items-start text-start w-100 text-gray-800 text-hover-primary p-10" href="account/overview.html">
+                                <i class="ki-outline ki-gift fs-2tx mb-5 ms-n1 text-gray-500"></i>
+                                <span class="fs-4 fw-bold">Total Companies</span>
+                            </a>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Col-->--}}{{--
+--}}
+{{--
+
+                    </div>
+                </div>
+                <!--end::Col-->--}}{{--
+
+
+                --}}
+{{-- <div class="row g-5 g-xl-8">
+                     <div class="col-xl-3">
+                         <!--begin::Statistics Widget 5-->
+                         <a href="#" class="card bg-body hoverable card-xl-stretch mb-xl-8">
+                             <!--begin::Body-->
+                             <div class="card-body">
+                                 <i class="ki-outline ki-chart-simple text-primary fs-2x ms-n1"></i>
+                                 <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">500M$</div>
+                                 <div class="fw-semibold text-gray-400">SAP UI Progress</div>
+                             </div>
+                             <!--end::Body-->
+                         </a>
+                         <!--end::Statistics Widget 5-->
+                     </div>
+                     <div class="col-xl-3">
+                         <!--begin::Statistics Widget 5-->
+                         <a href="#" class="card bg-dark hoverable card-xl-stretch mb-xl-8">
+                             <!--begin::Body-->
+                             <div class="card-body">
+                                 <i class="ki-outline ki-cheque text-gray-100 fs-2x ms-n1"></i>
+                                 <div class="text-gray-100 fw-bold fs-2 mb-2 mt-5">+3000</div>
+                                 <div class="fw-semibold text-gray-100">New Customers</div>
+                             </div>
+                             <!--end::Body-->
+                         </a>
+                         <!--end::Statistics Widget 5-->
+                     </div>
+                     <div class="col-xl-3">
+                         <!--begin::Statistics Widget 5-->
+                         <a href="#" class="card bg-warning hoverable card-xl-stretch mb-xl-8">
+                             <!--begin::Body-->
+                             <div class="card-body">
+                                 <i class="ki-outline ki-briefcase text-white fs-2x ms-n1"></i>
+                                 <div class="text-white fw-bold fs-2 mb-2 mt-5">$50,000</div>
+                                 <div class="fw-semibold text-white">Milestone Reached</div>
+                             </div>
+                             <!--end::Body-->
+                         </a>
+                         <!--end::Statistics Widget 5-->
+                     </div>
+                     <div class="col-xl-3">
+                         <!--begin::Statistics Widget 5-->
+                         <a href="#" class="card bg-info hoverable card-xl-stretch mb-5 mb-xl-8">
+                             <!--begin::Body-->
+                             <div class="card-body">
+                                 <i class="ki-outline ki-chart-pie-simple text-white fs-2x ms-n1"></i>
+                                 <div class="text-white fw-bold fs-2 mb-2 mt-5">$50,000</div>
+                                 <div class="fw-semibold text-white">Milestone Reached</div>
+                             </div>
+                             <!--end::Body-->
+                         </a>
+                         <!--end::Statistics Widget 5-->
+                     </div>
+                 </div>--}}{{--
+
+
+                <div class="row g-5 xl-8">
+                    <div class="col-xl-3">
+                        <a href="{{route('admin.companies.index')}}" class="card bg-body hoverable mb-5">
+                            <div class="card-body">
+                                <i class="ki-outline ki-chart-simple text-primary fs-2x ms-n1"></i>
+                                <div class="text-gray-900 fw-bold fs-2 mb-2 mt-5">Total Companies</div>
+                                <div class="fw-semibold text-black-400">{{ $totalcompanies }} Company</div>
+                            </div>
+                        </a>
+                        <a href="#" class="card bg-dark hoverable mb-5">
+                            <div class="card-body">
+                                <i class="ki-outline ki-cheque text-gray-100 fs-2x ms-n1"></i>
+                                <div class="text-gray-100 fw-bold fs-2 mb-2 mt-5">Total Vehicles</div>
+                                <div class="fw-semibold text-gray-100">{{$totalvehicles}} Vehicles</div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="card bg-warning hoverable mb-5">
+                            <div class="card-body">
+                                <i class="ki-outline ki-briefcase text-white fs-2x ms-n1"></i>
+                                <div class="text-white fw-bold fs-2 mb-2 mt-5">Total Active Bookings</div>
+                                <div class="fw-semibold text-white">{{$active_bookings}} Active Bookings</div>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="#" class="card bg-info hoverable">
+                            <div class="card-body">
+                                <i class="ki-outline ki-chart-pie-simple text-white fs-2x ms-n1"></i>
+                                <div class="text-white fw-bold fs-2 mb-2 mt-5">Total Completed Bookings</div>
+                                <div class="fw-semibold text-white">{{$completed_bookings}} Completed Bookings</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!--begin::Col-->
+                <div class="col-xl-8 ps-xl-12">
+                    <!--begin::Engage widget 1-->
+                    <div class="card bgi-position-y-bottom bgi-position-x-end bgi-no-repeat bgi-size-cover min-h-250px bg-body mb-5 mb-xl-8" style="background-position: 100% 50px;background-size: 500px auto;background-image:url('{{ asset('metronic/assets/media/misc/city.png') }}')" dir="ltr">
+                        <!--begin::Body-->
+                        <div class="card-body d-flex flex-column justify-content-center ps-lg-12">
+                            <!--begin::Title-->
+                            <h3 class="text-gray-900 fs-2qx fw-bold mb-7">We are working
+                                <br />to boost lovely mood</h3>
+                            <!--end::Title-->
+                            <!--begin::Action-->
+                            <div class="m-0">
+                                <a href='#' class="btn btn-dark fw-semibold px-6 py-3" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create a Store</a>
+                            </div>
+                            <!--begin::Action-->
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Engage widget 1-->
+                    <!--begin::Tables Widget 5-->
+                    <div class="card mb-5 mb-xl-8">
+                        <!--begin::Header-->
+                        <div class="card-header border-0 pt-5">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold fs-3 mb-1">Latest Products</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7">More than 400 new products</span>
+                            </h3>
+                            <div class="card-toolbar">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4 me-1 active" data-bs-toggle="tab" href="#kt_table_widget_5_tab_1">Month</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4 me-1" data-bs-toggle="tab" href="#kt_table_widget_5_tab_2">Week</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-secondary fw-bold px-4" data-bs-toggle="tab" href="#kt_table_widget_5_tab_3">Day</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body py-3">
+                            <div class="tab-content">
+                                <!--begin::Tap pane-->
+                                <div class="tab-pane fade show active" id="kt_table_widget_5_tab_1">
+                                    <!--begin::Table container-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
+                                            <!--begin::Table head-->
+                                            <thead>
+                                            <tr class="border-0">
+                                                <th class="p-0 w-50px"></th>
+                                                <th class="p-0 min-w-150px"></th>
+                                                <th class="p-0 min-w-140px"></th>
+                                                <th class="p-0 min-w-110px"></th>
+                                                <th class="p-0 min-w-50px"></th>
+                                            </tr>
+                                            </thead>
+                                            <!--end::Table head-->
+                                            <!--begin::Table body-->
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/plurk.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Brad Simmons</a>
+                                                    <span class="text-muted fw-semibold d-block">Movie Creator</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">React, HTML</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-success">Approved</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/telegram.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Popular Authors</a>
+                                                    <span class="text-muted fw-semibold d-block">Most Successful</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">Python, MySQL</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-warning">In Progress</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/vimeo.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">New Users</a>
+                                                    <span class="text-muted fw-semibold d-block">Awesome Users</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">Laravel,Metronic</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-primary">Success</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/bebo.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Active Customers</a>
+                                                    <span class="text-muted fw-semibold d-block">Movie Creator</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">AngularJS, C#</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-danger">Rejected</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/kickstarter.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Bestseller Theme</a>
+                                                    <span class="text-muted fw-semibold d-block">Best Customers</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">ReactJS, Ruby</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-warning">In Progress</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Tap pane-->
+                                <!--begin::Tap pane-->
+                                <div class="tab-pane fade" id="kt_table_widget_5_tab_2">
+                                    <!--begin::Table container-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
+                                            <!--begin::Table head-->
+                                            <thead>
+                                            <tr class="border-0">
+                                                <th class="p-0 w-50px"></th>
+                                                <th class="p-0 min-w-150px"></th>
+                                                <th class="p-0 min-w-140px"></th>
+                                                <th class="p-0 min-w-110px"></th>
+                                                <th class="p-0 min-w-50px"></th>
+                                            </tr>
+                                            </thead>
+                                            <!--end::Table head-->
+                                            <!--begin::Table body-->
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/plurk.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Brad Simmons</a>
+                                                    <span class="text-muted fw-semibold d-block">Movie Creator</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">React, HTML</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-success">Approved</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/telegram.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Popular Authors</a>
+                                                    <span class="text-muted fw-semibold d-block">Most Successful</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">Python, MySQL</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-warning">In Progress</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/bebo.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Active Customers</a>
+                                                    <span class="text-muted fw-semibold d-block">Movie Creator</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">AngularJS, C#</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-danger">Rejected</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Tap pane-->
+                                <!--begin::Tap pane-->
+                                <div class="tab-pane fade" id="kt_table_widget_5_tab_3">
+                                    <!--begin::Table container-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table table-row-dashed table-row-gray-200 align-middle gs-0 gy-4">
+                                            <!--begin::Table head-->
+                                            <thead>
+                                            <tr class="border-0">
+                                                <th class="p-0 w-50px"></th>
+                                                <th class="p-0 min-w-150px"></th>
+                                                <th class="p-0 min-w-140px"></th>
+                                                <th class="p-0 min-w-110px"></th>
+                                                <th class="p-0 min-w-50px"></th>
+                                            </tr>
+                                            </thead>
+                                            <!--end::Table head-->
+                                            <!--begin::Table body-->
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/kickstarter.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Bestseller Theme</a>
+                                                    <span class="text-muted fw-semibold d-block">Best Customers</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">ReactJS, Ruby</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-warning">In Progress</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/bebo.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Active Customers</a>
+                                                    <span class="text-muted fw-semibold d-block">Movie Creator</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">AngularJS, C#</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-danger">Rejected</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/vimeo.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">New Users</a>
+                                                    <span class="text-muted fw-semibold d-block">Awesome Users</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">Laravel,Metronic</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-primary">Success</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="symbol symbol-45px me-2">
+                                                                        <span class="symbol-label">
+                                                                            <img src="{{ asset('metronic/assets/media/svg/brand-logos/telegram.svg') }}" class="h-50 align-self-center" alt="" />
+                                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="text-gray-900 fw-bold text-hover-primary mb-1 fs-6">Popular Authors</a>
+                                                    <span class="text-muted fw-semibold d-block">Most Successful</span>
+                                                </td>
+                                                <td class="text-end text-muted fw-bold">Python, MySQL</td>
+                                                <td class="text-end">
+                                                    <span class="badge badge-light-warning">In Progress</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    <a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary">
+                                                        <i class="ki-outline ki-arrow-right fs-2"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Tap pane-->
+                            </div>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Tables Widget 5-->
+                    <div class="card card-flush">
+                        <div class="card-header pt-5">
+                            <h3 class="card-title">Bookings Distribution</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="bookings_pie_chart" style="height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Row-->
+        </div>
+        <!--end::Content-->
+    </div>
+@endsection
+
+@section('custom-js')
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="{{ asset('metronic/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="{{ asset('metronic/assets/js/widgets.bundle.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/widgets.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/apps/chat/chat.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/utilities/modals/new-target.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/utilities/modals/create-app.js') }}"></script>
+    <script src="{{ asset('metronic/assets/js/custom/utilities/modals/users-search.js') }}"></script>
+    <!--end::Custom Javascript-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var options = {
+                series: [540, 380, 120], // Example data: Active, Completed, Canceled
+                chart: {
+                    type: 'pie',
+                    height: 350
+                },
+                labels: ['Active', 'Completed', 'Canceled'],
+                colors: ['#00C851', '#007bff', '#ff4444'], // Green, Blue, Red
+                legend: {
+                    position: 'bottom'
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val, opts) {
+                        return opts.w.globals.labels[opts.seriesIndex] + ": " + val.toFixed(1) + "%";
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#bookings_pie_chart"), options);
+            chart.render();
+        });
+    </script>
+@endsection
+--}}
+
+
+
